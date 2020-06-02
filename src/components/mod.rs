@@ -1,6 +1,9 @@
 use yew::prelude::*;
 use std::fmt;
 
+use super::console_log;
+use super::*;
+
 #[allow(non_camel_case_types)]
 #[derive(Clone, Debug, Copy)]
 pub struct u4 {
@@ -172,7 +175,7 @@ impl Component for Model {
                         self.rom[index] = rom;
                     }
                     Err(e) => {
-                        println!("{}: string is allowed to 0-15", e);
+                        console_log!("{}: {}", e, "string is allowed to 0-15");
                     }
                 }
             }

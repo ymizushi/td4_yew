@@ -71,11 +71,11 @@ impl Model {
                 self.carry = false;
             }
             0b0001 => { // MOV A, B
-                self.register_a.v = self.register_b.v;
+                self.register_a.v = self.register_b.v & 0b00001111u8;
                 self.carry = false;
             }
             0b0100 => { // MOV B, A
-                self.register_b.v = self.register_a.v;
+                self.register_b.v = self.register_a.v & 0b00001111u8;
                 self.carry = false;
             }
             0b0000 => { // ADD A, Im
@@ -85,11 +85,11 @@ impl Model {
                 self.carry = self.register_b.add(u4 {v: im});
             },
             0b0010 => { // IN A
-                self.register_a.v = self.i_port.v;
+                self.register_a.v = self.i_port.v & 0b00001111u8;
                 self.carry = false;
             },
             0b0110 => { // IN B
-                self.register_b.v = self.i_port.v;
+                self.register_b.v = self.i_port.v & 0b00001111u8;
                 self.carry = false;
             },
             0b1011 => { // OUT Im
@@ -97,11 +97,11 @@ impl Model {
                 self.carry = false;
             },
             0b1001 => { // OUT B
-                self.o_port.v = self.register_b.v;
+                self.o_port.v = self.register_b.v & 0b00001111u8;
                 self.carry = false;
             },
             0b1111 => { // JMP Im
-                self.pc.v = im;
+                self.pc.v = im ;
                 self.carry = false;
             },
             0b1110 => { // JNC Im

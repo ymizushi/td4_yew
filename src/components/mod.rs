@@ -122,17 +122,21 @@ impl Model {
     fn view_rom_item(&self, index: usize, rom: u8) -> Html {
         html! {
             <div class="td4-rom-item">
-                <div>{"index: "}{ index }</div>
-                <textarea rows=1
+                {"reg"}{ index }{": "}
+                <input type="text" 
                     value=rom
                     oninput=self.link.callback(move |e: InputData| Msg::GotInput(index, e.value))
-                    placeholder="placeholder" />
+                    placeholder="0" />
             </div>
         }
     }
+
     fn view_registers(&self) -> Html {
         html! {
             <div class="td4-registers">
+                <div class="td4-registers-header">
+                    <p> { "Registers" } </p>
+                </div>
                 <div class="td4-registers-item">{ "Register A: " } { self.register_a }</div>
                 <div class="td4-registers-item">{ "Register B: " } { self.register_b }</div>
                 <div class="td4-registers-item">{ "Carry: " } { self.carry }</div>
@@ -176,6 +180,7 @@ impl Component for Model {
                     }
                     Err(e) => {
                         console_log!("{}: {}", e, "string is allowed to 0-15");
+                        self.rom[index] = 0;
                     }
                 }
             }
@@ -196,10 +201,22 @@ impl Component for Model {
             <div class="td4">
                 { self.view_registers() }
                 <div class="td4-rom">
-                    { self.rom.iter().enumerate().map(|(i, rom)| self.view_rom_item(i, *rom)).collect::<Html>() }
+                    <div class="td4-rom-header">
+                        <p>{ "ROM" }</p>
+                    </div>
+                    <div class="td4-rom-items">
+                        { self.rom.iter().enumerate().map(|(i, rom)| self.view_rom_item(i, *rom)).collect::<Html>() }
+                    </div>
                 </div>
-                <button onclick=self.link.callback(|_| Msg::Clock)>{ "Clock" }</button>
-                <button onclick=self.link.callback(|_| Msg::Reset)>{ "Reset" }</button>
+                <div class="td4-timing">
+                    <div class="td4-timing-header">
+                        <p>{ "Timing" }</p>
+                    </div>
+                    <div class="td4-timing-buttons">
+                        <button onclick=self.link.callback(|_| Msg::Clock)>{ "Clock" }</button>
+                        <button onclick=self.link.callback(|_| Msg::Reset)>{ "Reset" }</button>
+                    </div>
+                </div>
             </div>
         }
     }

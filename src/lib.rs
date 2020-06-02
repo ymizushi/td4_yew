@@ -1,5 +1,6 @@
+#![recursion_limit="256"]
+
 #[macro_use] mod components;
-mod util;
 
 use wasm_bindgen::prelude::*;
 use yew::prelude::App;

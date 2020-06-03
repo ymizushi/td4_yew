@@ -1,0 +1,51 @@
+.td4 {
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+
+.td4-registers {
+    float: left;
+    width: 200px;
+    height: 1000px;
+    background-color: #1abc9c;
+}
+
+.td4-registers-header {
+    background-color: #16a085;
+    height: 100px;
+}
+
+
+.td4-rom {
+    float: left;
+    width: 200px;
+    height: 1000px;
+    background-color: #27ae60;
+}
+
+
+.td4-rom-header {
+    background-color: #2ecc71;
+    height: 100px;
+}
+
+.td4-rom-item {
+}
+
+.td4-timing {
+    float: left;
+    width: 200px;
+    height: 1000px;
+    background-color: #16a085;
+}
+
+.td4-timing-header {
+    width: 200px;
+    height: 100px;
+    background-color: #1abc9c;
+}
+
+.td4-timing-buttons {
+}
+

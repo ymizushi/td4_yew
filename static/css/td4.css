@@ -1,33 +1,44 @@
 .td4 {
     font-size: 20px;
-    text-align: center;
+    text-align: left;
     color: white;
+    margin: 0;
+    padding: 0;
 }
 
 .td4-registers {
     float: left;
-    width: 200px;
-    height: 1000px;
-    background-color: #1abc9c;
+    background-color: #F26419;
 }
 
 .td4-registers-header {
-    background-color: #16a085;
-    height: 100px;
+}
+
+.td4-registers-items {
+    background-color: #F6AE2D;
+}
+
+.td4-registers-item {
+}
+
+.td4-registers-item-left {
+}
+
+.td4-registers-item-left {
 }
 
 
 .td4-rom {
     float: left;
-    width: 200px;
-    height: 1000px;
-    background-color: #27ae60;
+    background-color: #527F9C;
 }
 
 
 .td4-rom-header {
-    background-color: #2ecc71;
-    height: 100px;
+}
+
+.td4-rom-items {
+    background-color: #86BBD8;
 }
 
 .td4-rom-item {
@@ -35,17 +46,21 @@
 
 .td4-timing {
     float: left;
-    width: 200px;
-    height: 1000px;
-    background-color: #16a085;
+    background-color: #7FC29B;
+    
 }
 
 .td4-timing-header {
-    width: 200px;
-    height: 100px;
-    background-color: #1abc9c;
 }
 
 .td4-timing-buttons {
+    background-color: #B5EF8A;
 }
 
+.td4-timing-button-clock {
+    background-color: #2EB7AF;
+    
+}
+
+.td4-timing-button-reset {
+}

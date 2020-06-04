@@ -24,7 +24,13 @@ impl u4 {
 
 impl fmt::Display for u4 {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "{}", self.v)
+        write!(f, "{:04b}", self.v)
+    }
+}
+
+impl fmt::Binary for u4 {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{:04b}", self.v)
     }
 }
 
@@ -122,9 +128,9 @@ impl Model {
     fn view_rom_item(&self, index: usize, rom: u8) -> Html {
         html! {
             <div class="td4-rom-item">
-                {"reg"}{ index }{": "}
+                { format!("{:04b}", index) }{": "}
                 <input type="text" 
-                    value=rom
+                    value=format!("{:08b}", rom)
                     oninput=self.link.callback(move |e: InputData| Msg::GotInput(index, e.value))
                     placeholder="0" />
             </div>
@@ -137,12 +143,32 @@ impl Model {
                 <div class="td4-registers-header">
                     <p> { "Registers" } </p>
                 </div>
-                <div class="td4-registers-item">{ "Register A: " } { self.register_a }</div>
-                <div class="td4-registers-item">{ "Register B: " } { self.register_b }</div>
-                <div class="td4-registers-item">{ "Carry: " } { self.carry }</div>
-                <div class="td4-registers-item">{ "PC: " } { self.pc }</div>
-                <div class="td4-registers-item">{ "o_port: " } { self.o_port }</div>
-                <div class="td4-registers-item">{ "i_port: " } { self.i_port }</div>
+                <div class="td4-registers-items">
+                    <div class="td4-registers-item">
+                      <div class="td4-registers-item-left">{ "Register A:" }</div>
+                      <div class="td4-registers-item-right">{ self.register_a }</div>
+                    </div>
+                    <div class="td4-registers-item">
+                      <div class="td4-registers-item-left">{ "Register B:" }</div>
+                      <div class="td4-registers-item-right">{ self.register_b }</div>
+                    </div>
+                    <div class="td4-registers-item">
+                      <div class="td4-registers-item-left">{ "Carry:" }</div>
+                      <div class="td4-registers-item-right">{ self.carry }</div>
+                    </div>
+                    <div class="td4-registers-item">
+                      <div class="td4-registers-item-left">{ "PC:" }</div>
+                      <div class="td4-registers-item-right">{ self.pc }</div>
+                    </div>
+                    <div class="td4-registers-item">
+                      <div class="td4-registers-item-left">{ "o_port:" }</div>
+                      <div class="td4-registers-item-right">{ self.o_port }</div>
+                    </div>
+                    <div class="td4-registers-item">
+                      <div class="td4-registers-item-left">{ "i_port:" }</div>
+                      <div class="td4-registers-item-right">{ self.i_port }</div>
+                    </div>
+                </div>
             </div>
         }
     }
@@ -174,9 +200,9 @@ impl Component for Model {
                 self.reset();
             }
             Msg::GotInput(index, rom) => {
-                match rom.parse() {
+                match isize::from_str_radix(&rom.to_string(), 2) {
                     Ok(rom) => {
-                        self.rom[index] = rom;
+                        self.rom[index] = rom as u8;
                     }
                     Err(e) => {
                         console_log!("{}: {}", e, "string is allowed to 0-15");
@@ -213,8 +239,8 @@ impl Component for Model {
                         <p>{ "Timing" }</p>
                     </div>
                     <div class="td4-timing-buttons">
-                        <button onclick=self.link.callback(|_| Msg::Clock)>{ "Clock" }</button>
-                        <button onclick=self.link.callback(|_| Msg::Reset)>{ "Reset" }</button>
+                        <button class="td4-timing-button-clock" onclick=self.link.callback(|_| Msg::Clock)>{ "Clock" }</button>
+                        <button class="td4-timing-button-reset" onclick=self.link.callback(|_| Msg::Reset)>{ "Reset" }</button>
                     </div>
                 </div>
             </div>

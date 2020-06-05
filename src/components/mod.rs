@@ -119,7 +119,7 @@ impl Model {
                 } 
                 self.carry = false;
             },
-            _ => panic!("Unknown opcode")
+            _ => console_log!("{}", "Unknown opcode")
         };
     }
 }

@@ -2,65 +2,99 @@
     font-size: 20px;
     text-align: left;
     color: white;
-    margin: 0;
-    padding: 0;
+    margin: 1em;
+    padding: 1em;
 }
 
 .td4-registers {
     float: left;
     background-color: #F26419;
+    height: 35em;
 }
 
 .td4-registers-header {
+    text-align: center;
+    background-color: #F26419;
 }
 
 .td4-registers-items {
     background-color: #F6AE2D;
+    padding: 0.5em;
 }
 
 .td4-registers-item {
+    margin: 0.2em;
 }
 
 .td4-registers-item-left {
+    display: inline;
 }
 
-.td4-registers-item-left {
+.td4-registers-item-right {
+    display: inline;
 }
-
 
 .td4-rom {
+    height: 35em;
     float: left;
     background-color: #527F9C;
 }
 
 
 .td4-rom-header {
+    text-align: center;
 }
 
 .td4-rom-items {
+    padding: 0.5em;
     background-color: #86BBD8;
 }
 
 .td4-rom-item {
+    margin: 0.2em;
+}
+
+.td4-rom-item input {
+    text-align: right;
+    width: 10em;
 }
 
 .td4-timing {
+    width: 8em;
     float: left;
     background-color: #7FC29B;
-    
+    height: 35em;
 }
 
 .td4-timing-header {
+    text-align: center;
 }
 
 .td4-timing-buttons {
     background-color: #B5EF8A;
+    padding: 0.5em;
 }
 
 .td4-timing-button-clock {
+    color: white;
+    margin: 1em auto;
+    width: 10em;
+    padding: 0.4em;
+    display: block;
+    border: 0em;
+    border-radius: 0.5em;
+    border-style: solid;
     background-color: #2EB7AF;
-    
 }
 
 .td4-timing-button-reset {
+    color: white;
+    width: 10em;
+    margin: 1em auto;
+    padding: 0.3em;
+    display: block;
+    border: 0em;
+    border-radius: 0.5em;
+    border-style: solid;
+    background-color: #CE4040;
 }

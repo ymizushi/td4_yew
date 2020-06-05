@@ -145,28 +145,28 @@ impl Model {
                 </div>
                 <div class="td4-registers-items">
                     <div class="td4-registers-item">
-                      <div class="td4-registers-item-left">{ "Register A:" }</div>
-                      <div class="td4-registers-item-right">{ self.register_a }</div>
+                      <span class="td4-registers-item-left">{ "Register A:" }</span>
+                      <span class="td4-registers-item-right">{ self.register_a }</span>
                     </div>
                     <div class="td4-registers-item">
-                      <div class="td4-registers-item-left">{ "Register B:" }</div>
-                      <div class="td4-registers-item-right">{ self.register_b }</div>
+                      <span class="td4-registers-item-left">{ "Register B:" }</span>
+                      <span class="td4-registers-item-right">{ self.register_b }</span>
                     </div>
                     <div class="td4-registers-item">
-                      <div class="td4-registers-item-left">{ "Carry:" }</div>
-                      <div class="td4-registers-item-right">{ self.carry }</div>
+                      <span class="td4-registers-item-left">{ "Carry:" }</span>
+                      <span class="td4-registers-item-right">{ self.carry }</span>
                     </div>
                     <div class="td4-registers-item">
-                      <div class="td4-registers-item-left">{ "PC:" }</div>
-                      <div class="td4-registers-item-right">{ self.pc }</div>
+                      <span class="td4-registers-item-left">{ "PC:" }</span>
+                      <span class="td4-registers-item-right">{ self.pc }</span>
                     </div>
                     <div class="td4-registers-item">
-                      <div class="td4-registers-item-left">{ "o_port:" }</div>
-                      <div class="td4-registers-item-right">{ self.o_port }</div>
+                      <span class="td4-registers-item-left">{ "o_port:" }</span>
+                      <span class="td4-registers-item-right">{ self.o_port }</span>
                     </div>
                     <div class="td4-registers-item">
-                      <div class="td4-registers-item-left">{ "i_port:" }</div>
-                      <div class="td4-registers-item-right">{ self.i_port }</div>
+                      <span class="td4-registers-item-left">{ "i_port:" }</span>
+                      <span class="td4-registers-item-right">{ self.i_port }</span>
                     </div>
                 </div>
             </div>
